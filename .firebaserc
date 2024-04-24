@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "biliard-booker-4729e": {
+      "hosting": {
+        "biliard-project": [
+          "biliard-booker-4729e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "biliard-booker-4729e"
+  }
+}

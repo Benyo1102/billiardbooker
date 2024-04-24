@@ -1,0 +1,23 @@
+<div class="form-container">
+    <div class="login-container">
+        <h1>Bejelentkezés</h1>
+        <form (ngSubmit)="onLoginPressed()">
+            <div *ngIf="email.dirty" class="form-errors">
+                <p *ngIf="email.hasError('required')">Az e-mail cím megadása kötelező</p>
+            </div>
+            <input type="email" name="email" placeholder="E-mail" [formControl]="email">
+
+            <div *ngIf="password.dirty" class="form-errors">
+                <p *ngIf="password.hasError('required')">A jelszó megadása kötelező</p>
+            </div>
+            <input type="password" name="password" placeholder="Jelszó" [formControl]="password">
+            
+            <div *ngIf="errorMessage" class="form-errors">
+                <p>{{ errorMessage }}</p>
+            </div><br>
+            <button class="login-btn">Játékra fel!</button><br><br>
+            <a class="link" routerLink="/register">Nincs még felhasználói fiókod? Regisztrálj!</a>
+        </form>
+    </div>
+</div>
+<!-- <button class="register-btn">Hang</button> -->

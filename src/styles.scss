@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+/* Variables */
+$greenColor: rgb(0, 205, 0);
+
+body {
+    overflow: hidden;
+    margin: 0;
+}
+
+.font-text{
+    font-family:'Times New Roman', Times, sans-serif;
+}
+
+/* For all the yellow texts */
+.green-text{
+    color: $greenColor;
+}

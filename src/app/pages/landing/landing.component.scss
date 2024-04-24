@@ -1,0 +1,78 @@
+/* Variables */
+$greenColor: rgb(0, 205, 0);
+$greenHoverColor: #026102;
+
+.form-container {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(#000000, 0.6);
+  }
+
+/* Layout */
+#landing-container {
+    position: relative;
+    width: 700px;
+    padding: 20px 0px;
+    background-color: rgba(1, 61, 1, 0.7);
+    backdrop-filter: blur(2.5px);
+    box-shadow: 0 10px 15px #000;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#button-container {
+    display: block;
+}
+
+
+/* Buttons */
+.landing-button {
+    background-color: $greenColor;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.landing-button:hover {
+    background-color: darken($greenColor, 10%);
+}
+
+/* Texts */
+.green-text {
+    text-align: center;
+}
+
+
+/* Headings */
+h1 {
+    font-size: 7vh; /* Default font size */
+}
+
+h3 {
+    font-size: 4vh; /* Default font size */
+}
+
+
+/* Responsiveness */
+@media screen and (max-height: 700px) {
+    h1 {
+        font-size: 55px; /* Adjusted font size for smaller screens */
+    }
+    
+    h3 {
+        font-size: 30px; /* Adjusted font size for smaller screens */
+    }
+}
+
+@media screen and (max-width: 670px) {
+    #button-container {
+        display: contents;
+    }
+}

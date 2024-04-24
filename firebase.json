@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "biliard-project",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

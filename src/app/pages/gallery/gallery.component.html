@@ -1,0 +1,6 @@
+<div class="form-container">
+    <div class="gallery">
+        <img *ngFor="let image of images" [src]="image" alt="Gallery image" (click)="openModal(image)">
+    </div>
+</div>
+<app-image-modal [show]="selectedImageUrl !== ''" [imageUrl]="selectedImageUrl" *ngIf="selectedImageUrl" (close)="closeModal()"></app-image-modal>

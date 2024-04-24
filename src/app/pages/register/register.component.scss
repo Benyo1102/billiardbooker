@@ -1,0 +1,78 @@
+/* Variables */
+$greenColor: rgb(0, 205, 0);
+$greenHoverColor: #026102;
+
+.form-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(#000000, 0.6);
+  }
+  
+  .register-container {
+    position: relative;
+    width: 450px;
+    padding: 20px 0px;
+    background-color: rgba(1, 61, 1, 0.7);
+    backdrop-filter: blur(2.5px);
+    box-shadow: 0 10px 15px #000;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .link {
+    color: $greenColor;
+  }
+
+  .register-btn {
+    background-color: $greenColor;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 8px;
+    margin: 5px;
+    cursor: pointer;
+  }
+  
+  h1 {
+    color: $greenColor;
+    margin: 30px;
+    font-size: 60px;
+    font-family: "Times New Roman";
+  }
+  
+  input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid $greenColor;
+    background: transparent;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .register-btn {
+    width: 200px;
+    padding: 15px 10px;
+    margin-top: 10px;
+    background-color: $greenColor;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .register-btn:hover {
+    opacity: 0.9;
+  }
+  
+  .form-errors p {
+    margin: 10px 0 0 0;
+    color: red;
+  }
+  
+  /* responsiveness */
+  @media screen and (max-width: 950px) {
+    .login-container {
+      width: max-content;
+    }
+  }
