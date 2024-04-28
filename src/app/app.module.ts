@@ -14,13 +14,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ImageModalComponent } from './pages/image-modal/image-modal.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     LoginComponent,
-    RegisterComponent,
     HomeComponent,
     GalleryComponent,
     ImageModalComponent,
@@ -35,7 +35,9 @@ import { ImageModalComponent } from './pages/image-modal/image-modal.component';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

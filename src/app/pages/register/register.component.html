@@ -1,45 +1,36 @@
-<div class="form-container">
-    <div class="register-container">
-        <h1>Regisztráció</h1>
-        <!--ngSubmit)="onRegisterPressed()"--> 
-        <form class="register-form">
-            <div *ngIf="fullname.dirty" class="form-errors">
-                <p *ngIf="fullname.hasError('required')">A teljes név megadása kötelező</p>
+<div class="main_component">
+    <div class="div-flex">
+        <h1>Regisztráld a fiókod:</h1>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label for="email">Email: </mat-label>
+                <input matInput type="text" formControlName="email" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="password">Jelszó: </mat-label>
+                <input matInput type="password" formControlName="password" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="rePassword">Jelszó megerősítése: </mat-label>
+                <input matInput type="password" formControlName="rePassword" />
+            </mat-form-field>
+            <div formGroupName="name" class="subForm">
+                <mat-form-field>
+                    <mat-label for="firstname">Vezetéknév: </mat-label>
+                    <input matInput type="text" formControlName="firstname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label for="firstname">Keresztnév: </mat-label>
+                    <input matInput type="text" formControlName="lastname" />
+                </mat-form-field>
             </div>
-            <input placeholder="Teljes név" name="fullname" [formControl]="fullname">
-
-            <div *ngIf="username.dirty" class="form-errors">
-                <p *ngIf="username.hasError('required')">A felhasználónév megadása kötelező</p>
-                <p *ngIf="username.hasError('exists')">Ez a felhasználónév foglalt.</p>
+            <div>
+                <span class="buttons">
+                    <button mat-raised-button color="primary" type="submit">Regisztráció</button>
+                </span><span class="buttons">
+                    <button mat-raised-button color="primary" (click)="goBack()">Vissza</button>
+                </span>
             </div>
-            <input placeholder="Felhasználónév" name="username" [formControl]="username">
-            
-            <div *ngIf="email.dirty" class="form-errors">
-                <p *ngIf="email.hasError('required')">Az e-mail cím megadása kötelező</p>
-                <p *ngIf="email.hasError('email')">Az e-mail cím érvénytelen</p>
-                <p *ngIf="email.hasError('exists')">Ezzel az email címmel már regisztráltak.</p>
-            </div>
-            <input placeholder="E-mail cím" name="email" [formControl]="email">
-
-            <div *ngIf="password.dirty" class="form-errors">
-                <p *ngIf="password.hasError('required')">A jelszó megadása kötelező</p>
-                <p *ngIf="password.hasError('lowerCase')">A jelszónak tartalmaznia kell legalább egy kisbetűt</p>
-                <p *ngIf="password.hasError('upperCase')">A jelszónak tartalmaznia kell legalább egy nagybetűt</p>
-                <p *ngIf="password.hasError('number')">A jelszónak tartalmaznia kell legalább egy számot</p>
-                <p *ngIf="password.hasError('specialChar')">A jelszónak tartalmaznia kell legalább egy speciális karaktert</p>
-                <p *ngIf="password.hasError('minlength')">A jelszónak legalább 8 karakter hosszúnak kell lennie</p>
-                <p *ngIf="password.hasError('lessMoreSign')">A jelszó nem tartalmazhat kevesebb vagy több jelet</p>
-            </div>
-            <input type="password" placeholder="Jelszó" name="password" [formControl]="password">
-
-            <div *ngIf="passwordRepeat.dirty" class="form-errors">
-                <p *ngIf="passwordRepeat.hasError('passwordMatch')">A jelszavak nem egyeznek</p>
-            </div>
-            <input type="password" placeholder="Jelszó ismétlése" name="passwordRepeat" [formControl]="passwordRepeat">
-            <button class="register-btn">Regisztráció</button>
-            <br>
-            <a class="link" routerLink="/login">Már van felhasználói fiókod?</a>
         </form>
     </div>
 </div>
-

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 

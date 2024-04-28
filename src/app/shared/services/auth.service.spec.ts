@@ -1,16 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
-import { Auth } from '@angular/fire/auth';
 
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [ ],
-      providers: [ { provide: Auth, useValue: {} } ]
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(AuthService);
   });
 
