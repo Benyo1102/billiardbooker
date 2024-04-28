@@ -1,83 +1,20 @@
-/* Variables */
-$greenColor: rgb(0, 205, 0);
-$greenHoverColor: #026102;
-
-.form-container {
-  height: 100dvh;
+div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-color: rgba(#000000, 0.6);
-}
-
-.login-container {
-  position: relative;
-  width: 450px;
-  padding: 20px 0px;
-  background-color: rgba(1, 61, 1, 0.7);
-  backdrop-filter: blur(2.5px);
-  box-shadow: 0 10px 15px #000;
-  border-radius: 8px;
   text-align: center;
+  height: 100%;
 }
 
-.link {
- color: $greenColor;
+.main_component {
+  height: 100vh;
+  align-items: center;
 }
 
-h1 {
-  color: $greenColor;
-  margin: 50px;
-  font-size: 60px;
-  font-family: "Times New Roman";
+span {
+  padding: 5px 5px 5px 5px;
 }
 
-input {
-  width: 300px;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid $greenColor;
-  background: transparent;
-  color: white;
-  border-radius: 4px;
-}
-
-.login-btn {
-  width: 200px;
-  padding: 15px 10px;
-  margin-top: 10px;
-  background-color: $greenColor;
-  border: none;
-  cursor: pointer;
-}
-
-.login-btn:hover {
-  opacity: 0.9;
-}
-
-.form-errors p {
-  margin: 10px 0 0 0;
-  color: red;
-}
-
-/* További stílusok, ha szükséges */
-
-/* responsiveness */
-@media screen and (max-width: 950px) {
-  .login-container {
-    width: max-content;
-  }
-}
-
-button {
-  background-color: $greenColor;
-  color: black;
-  border: none;
-  padding: 15px 30px;
-  text-align: center;
-  display: inline-block;
-  font-size: 30px;
-  margin: 4px 20px;
-  cursor: pointer;
-  border-radius: 15px;
+mat-form-field {
+  width: 50%;
 }

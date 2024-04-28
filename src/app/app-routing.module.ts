@@ -1,19 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingComponent } from './pages/landing/landing.component';
-import { canActivate } from "@angular/fire/auth-guard";
-import { redirectUnverifiedTo, redirectVerifiedTo } from './shared/services/auth-guard';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
-import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AuthGuard } from './shared/services/auth.guard';
+
 
 const routes: Routes = [
-  { path: '', component: LandingComponent, ...canActivate(() => redirectVerifiedTo(['home']))},
-  { path: 'login', component: LoginComponent, ...canActivate(() => redirectVerifiedTo(['home']))},
-  { path: 'register', component: RegisterComponent, ...canActivate(() => redirectVerifiedTo(['home']))},
-  { path: 'home', component: HomeComponent, ...canActivate(() => redirectUnverifiedTo(['']))},
-  { path: 'gallery', component: GalleryComponent, ...canActivate(() => redirectVerifiedTo(['home']))},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
+  { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
+  { path: 'contact', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule)},
+  { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule), canActivate: [AuthGuard]},
+  { path: '**', redirectTo: '/not-found'}
 ];
 
 @NgModule({

@@ -8,6 +8,5 @@ export const environment = {
      appId: "1:332885582397:web:0e2ddb361a4ee31ddf0054",
      measurementId: "G-9GSYW1SNZG"
    },
-   production: false,
-   hostUrl: 'http://localhost:4200'
-   };
+   production: true,
+  };

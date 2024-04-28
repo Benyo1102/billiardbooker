@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   async login() {
     this.loading = true;
-      this.authService.login(this.email.value ?? '', this.password.value ?? '').then(cred => {
+      this.authService.login(this.email.value, this.password.value).then(cred => {
         console.log(cred);
         this.router.navigateByUrl('/main');
         this.loading = false;
