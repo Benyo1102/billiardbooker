@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../../shared/services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -7,8 +6,8 @@ import { Title } from '@angular/platform-browser';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  constructor(title: Title, auth: AuthService) {
+export class HomeComponent implements OnInit {
+  constructor(title: Title) {
     title.setTitle("Biliard-Booker - Home!");
   }
 
