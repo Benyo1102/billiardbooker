@@ -11,4 +11,7 @@ export class HomeComponent {
   constructor(title: Title, auth: AuthService) {
     title.setTitle("Biliard-Booker - Home!");
   }
+
+  ngOnInit(): void {}
+
 }

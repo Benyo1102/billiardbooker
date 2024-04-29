@@ -2,10 +2,14 @@
 $greenColor: rgb(0, 205, 0);
 $greenHoverColor: #026102;
 
-.form-container {
-    height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(#000000, 0.6);
-  }
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.main_component {
+  height: 100vh;
+}
