@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loading = true;
       this.authService.login(this.email.value ?? '', this.password.value ?? '').then(cred => {
         console.log(cred);
-        this.router.navigateByUrl('/main');
+        this.router.navigateByUrl('/landing');
         this.loading = false;
       }).catch(error => {
         console.error(error);

@@ -4,11 +4,11 @@ import { AuthGuard } from './shared/services/auth.guard';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/landing', pathMatch: 'full'},
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
   { path: 'register', loadChildren: () => import('./pages/register/register.module').then(m => m.RegisterModule) },
-  { path: 'contact', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule)},
-  { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule), canActivate: [AuthGuard]},
+  { path: 'gallery', loadChildren: () => import('./pages/gallery/gallery.module').then(m => m.GalleryModule)},
+  { path: 'landing', loadChildren: () => import('./pages/landing/landing.module').then(m => m.LandingModule)},
   { path: '**', redirectTo: '/not-found'}
 ];
 

@@ -1,58 +1,87 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../shared/services/auth.service';
+import { User } from '../../shared/models/User';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent {
-  signUpForm!: FormGroup;
-  location: any;
+export class RegisterComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) {
-    this.createForm();
+  signUpForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required]),
+    rePassword: new FormControl('', [Validators.required]),
+    name: new FormGroup({
+      firstname: new FormControl('', [Validators.required]),
+      lastname: new FormControl('', [Validators.required])
+    })
+  });
+
+  constructor(
+    private location: Location,
+    private authService: AuthService,
+    private userService: UserService
+  ) { }
+
+  ngOnInit(): void {
   }
 
-  createForm() {
-    this.signUpForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      rePassword: ['', Validators.required],
-      name: this.formBuilder.group({
-        
-        firstname: ['', Validators.required],
-        lastname: ['', Validators.required]
-      }),
-    }, { validator: this.passwordMatchValidator });
-  }
-
-  passwordMatchValidator(formGroup: FormGroup): { mismatch: true } | null {
-    const passwordControl = formGroup.get('password');
-    const rePasswordControl = formGroup.get('rePassword');
-    
-    if (!passwordControl || !rePasswordControl) {
-      // Egy vagy több control nem található, visszatérünk null-lal
-      return null;
-    }
-  
-    const password = passwordControl.value;
-    const rePassword = rePasswordControl.value;
-  
-    // Visszatérünk a megfelelő értékkel: ha nem egyeznek a jelszavak, akkor { mismatch: true }, különben null
-    return password === rePassword ? null : { mismatch: true };
-  }
-  
   onSubmit() {
-    if (this.signUpForm.valid) {
-      console.log('Form data: ', this.signUpForm.value);
-    } else {
-      console.log('Form is not valid');
+    // Ellenőrizzük, hogy az űrlap érvényes-e
+    if (this.signUpForm.invalid) {
+        console.error('Az űrlap nem érvényes');
+        return; // Korai kilépés, ha az űrlap érvénytelen
     }
-  }
+
+    // Kinyerjük az email és jelszó értékeit
+    const emailValue = this.signUpForm.get('email')?.value ?? '';
+    const passwordValue = this.signUpForm.get('password')?.value ?? '';
+
+    // Ellenőrizzük, hogy az email és jelszó mezők nem üresek-e
+    if (!emailValue || !passwordValue) {
+        console.error('Email és jelszó megadása kötelező');
+        return;
+    }
+
+    // Regisztráció a Firebase segítségével
+    this.authService.signup(emailValue, passwordValue).then(cred => {
+        // Ha nem kaptunk vissza felhasználót, hibaüzenetet jelenítünk meg
+        if (!cred.user) {
+            console.error('Nem érkeztek felhasználói hitelesítő adatok');
+            return;
+        }
+
+        // Sikeres regisztráció esetén naplózzuk az űrlap adatait
+        console.log(this.signUpForm.value);
+
+        // Felhasználói objektum létrehozása
+        const user: User = {
+            id: cred.user.uid, // A felhasználó azonosítója
+            email: emailValue, // Email cím
+            username: emailValue.split('@')[0], // Felhasználónév az email cím alapján
+            name: {
+                firstname: this.signUpForm.get('name')?.get('firstname')?.value ?? '',
+                lastname: this.signUpForm.get('name')?.get('lastname')?.value ?? ''
+            }
+        };
+
+        // Felhasználó adatbázisba való mentése
+        this.userService.create(user).then(() => {
+            console.log('A felhasználó sikeresen hozzáadva!');
+        }).catch(error => {
+            console.error('Hiba történt a felhasználó hozzáadása során:', error);
+        });
+    }).catch(error => {
+        console.error('Regisztrációs hiba:', error);
+    });
+}
 
   goBack() {
     this.location.back();
-    console.log('Go back action triggered');
   }
 }
