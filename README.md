@@ -14,7 +14,7 @@
 
 ## Host
 
-https://biliard### booker### 4729e.web.app/landing
+https://biliard-booker-4729e.web.app/landing
 
 ## Javítás könnyítő
 Sajnos idő hiányában low effort, ill. kicsit kókány. Minimum elvárásoknak megfelel..
