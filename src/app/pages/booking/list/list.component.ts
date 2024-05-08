@@ -11,9 +11,6 @@ export class ListComponent implements OnInit, OnChanges {
   @Output() imageObjectEmitter: EventEmitter<any> = new EventEmitter();
   chosenImage: any;
   
-
-
-
   constructor() { }
 
   ngOnChanges() {

@@ -68,7 +68,7 @@ export class ViewerComponent implements OnInit, OnChanges {
     if (this.commentsForm.valid) {
       if (this.imageInput?.id) {
         this.appointmentService.bookanAppointment(this.commentsForm.get("comment")?.value ?? '',this.imageInput?.id).then(_ => {
-          this.router.navigateByUrl('/gallery/successful/' + this.commentsForm.get('username')?.value);
+          this.router.navigateByUrl('/booking/successful/' + this.commentsForm.get('username')?.value);
         }).catch(error => {
           console.error(error);
         });

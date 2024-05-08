@@ -1,27 +1,11 @@
-/* Variables */
-$greenColor: rgb(0, 205, 0);
-$greenHoverColor: #026102;
-
-.form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(#000000, 0.6);
-  min-height: 100vh; /* Az oldal teljes magasságának használata */
-}
-
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  justify-content: center;
-  gap: 10px;
-  max-height: 80vh; /* A galéria maximális magassága */
-  overflow-y: auto; /* Engedélyezi a függőleges görgetést, ha a tartalom meghaladja a max magasságot */
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
-
 .gallery img {
-  display: block; /* Megakadályozza a képek alapértelmezett inline térközét */
-  width: 100%; /* A képek kitöltik a grid cellájukat */
-  max-width: 300px; /* A képek maximális szélessége */
-  height: auto; /* A képek magasságának arányosan történő skálázása */
+  flex: 1 0 21%; /* A képek kb. negyedét töltik ki a soronként, némi térközzel */
+  margin: 5px;
+  width: auto;
+  height: 200px;
 }
