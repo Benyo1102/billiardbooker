@@ -9,7 +9,7 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 @Injectable({
   providedIn: 'root'
 })
-export class GalleryService {
+export class BookingService {
 
   collectionName = 'Images';
   constructor(
