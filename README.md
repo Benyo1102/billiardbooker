@@ -33,5 +33,6 @@ Routeok száma: 7
 @Input & @Output: list.component.ts, viewer.component.ts, menu.component.ts
 2 különböző attribútum, és strukturális direktíva is megvan valósítva, a bejelentkezés során is, regisztrációnál, 
 ngOnInit, nOnDestroy is megvan valósítva (Lifecycle Hook)
+Servicek kiszervezve külön, Modellek szintén
 
 Bármi kérdésed merül fel a javítás során, keress fel nyugodtan.
