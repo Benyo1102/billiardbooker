@@ -4,7 +4,7 @@ import { AuthService } from "./auth.service";
 
 export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
   const router = inject(Router);
-  const authService = inject(AuthService)
+  const authService = inject(AuthService);
   let needsLogin = route.data["needsLogin"] ?? false;
 
   const user = JSON.parse(localStorage.getItem('user') as string);
