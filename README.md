@@ -18,6 +18,7 @@ https://biliard-booker-4729e.web.app/landing
 
 ## Javítás könnyítő
 Sajnos idő hiányában low effort, ill. kicsit kókány. Minimum elvárásoknak megfelel..
+### Egyedül a pipe ami megvan valósítva, viszont nem működik
 ### Regisztráció után nem kapsz visszajelzést, hogy sikeres a regisztráció, viszont az adatbázisban mentődnek az adatok.
 ### Nincsenek validálva bizonyos inputok, győződj meg róla, hogy pontosan adod e meg a 2 jelszót!
 
